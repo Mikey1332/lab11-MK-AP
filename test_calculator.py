@@ -58,15 +58,15 @@ class TestCalculator(unittest.TestCase):
 
         # a is <= 0
         with self.assertRaises(ValueError):
-            log(0, 5)
+            logarithm(0, 5)
 
         # b is <= 0
         with self.assertRaises(ValueError):
-            log(2, -4)
+            logarithm(2, -4)
 
         # b == 1
         with self.assertRaises(ValueError):
-            log(3, 1)
+            logarithm(3, 1)
 
     def test_hypotenuse(self): # 3 assertions
         # Tests negative numbers and if function works

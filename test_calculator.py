@@ -1,4 +1,6 @@
 #https://github.com/Mikey1332/lab11-MK-AP.git
+# Partner 1: Michael Kroner
+# Partner 2: Alexandra Pippio
 
 import unittest
 from calculator import *

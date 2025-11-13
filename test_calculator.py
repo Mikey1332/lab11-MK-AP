@@ -7,12 +7,22 @@ from calculator import *
 
 class TestCalculator(unittest.TestCase):
     ######### Partner 2
-    # def test_add(self): # 3 assertions
-    #     fill in code
+    def test_add(self): # 3 assertions
+        #Tests if function is correct
+        self.assertAlmostEqual(add(2, 4), 6)
+        #Tests if negative numbers work
+        self.assertAlmostEqual(add(-4, -9), -13)
+        #Tests if non-integers work
+        self.assertAlmostEqual(add(2, 5.5), 7.5)
 
-    # def test_subtract(self): # 3 assertions
-    #     fill in code
-    # ##########################
+
+    def test_subtract(self): # 3 assertions
+        #Tests if function is correct
+        self.assertAlmostEqual(subtract(7, 3), 4)
+        #Tests if negative numbers work
+        self.assertAlmostEqual(subtract(-7, 3), -10)
+        #Tests if non-integers work
+        self.assertAlmostEqual(subtract(5, 2.3), 2.7)
 
     ####### Partner 1
     def test_multiply(self): # 3 assertions
@@ -38,35 +48,35 @@ class TestCalculator(unittest.TestCase):
     ##########################
 
     ######## Partner 2
-    # def test_divide_by_zero(self): # 1 assertion
-    #     # call division function inside, example:
-    #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
-    #     #     div(0, 5)
-    #     fill in code
+    def test_divide_by_zero(self): # 1 assertion
+        with self.assertRaises(ZeroDivisionError):
+            div(0, 5)
 
-    # def test_logarithm(self): # 3 assertions
-    #     fill in code
 
-    # def test_log_invalid_base(self): # 1 assertion
-    #     # use same technique from test_divide_by_zero
-    #     fill in code
-    # ##########################
+    def test_logarithm(self): # 3 assertions
+        #Tests if function is correct
+        self.assertAlmostEqual(logarithm(2, 8), 3)
+        self.assertAlmostEqual(logarithm(10, 100), 2)
+        self.assertAlmostEqual(logarithm(2, 3,), 1.58496250072)
+
+
+    def test_log_invalid_base(self): # 1 assertion
+        # a <= 0
+        with self.assertRaises(ValueError):
+            logarithm(0, 5)
+        # a == 1
+        with self.assertRaises(ValueError):
+            logarithm(1, 5)
+    ###########################
     
     ####### Partner 1
     def test_log_invalid_argument(self): # 1 assertion
         # call log function inside, example:
 
-        # a is <= 0
-        with self.assertRaises(ValueError):
-            logarithm(0, 5)
-
         # b is <= 0
         with self.assertRaises(ValueError):
             logarithm(2, -4)
 
-        # b == 1
-        with self.assertRaises(ValueError):
-            logarithm(3, 1)
 
     def test_hypotenuse(self): # 3 assertions
         # Tests negative numbers and if function works

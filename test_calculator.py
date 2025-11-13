@@ -34,14 +34,10 @@ class TestCalculator(unittest.TestCase):
         self.assertAlmostEqual(mul(3, 0.5), 1.5)
 
     def test_divide(self): # 3 assertions
-        # Tests if function is correct
-        self.assertAlmostEqual(div(8, 40), 5)
-        # Tests if negative numbers work
+        # Tests if negative numbers work and function is working
         self.assertAlmostEqual(div(-4, 16), -4)
-        # Tests if non-integers work for a and b
+        # Tests if non-integers work
         self.assertAlmostEqual(div(1.3, 16.9), 13)
-        # Tests if non-integers work for answer
-        self.assertAlmostEqual(div(2, 7), 3.5)
         # Tests error if divided by zero
         with self.assertRaises(ZeroDivisionError):
             div(0, 5)
@@ -71,16 +67,18 @@ class TestCalculator(unittest.TestCase):
     
     ####### Partner 1
     def test_log_invalid_argument(self): # 1 assertion
-        # call log function inside, example:
-
         # b is <= 0
         with self.assertRaises(ValueError):
             logarithm(2, -4)
 
 
     def test_hypotenuse(self): # 3 assertions
-        # Tests negative numbers and if function works
+        # Tests negative numbers
         self.assertAlmostEqual(hypotenuse(3, -4), 5)
+        # Tests if function works
+        self.assertAlmostEqual(hypotenuse(6, 8), 10)
+        # Checks if hypotenuse is greater than highest input
+        self.assertGreater(hypotenuse(5, 12), 12)
 
     def test_sqrt(self): # 3 assertions
         # Test for invalid argument, example:
@@ -89,6 +87,8 @@ class TestCalculator(unittest.TestCase):
            square_root(-4)
         # Test basic function
         self.assertAlmostEqual(square_root(16), 4)
+        # Tests zero
+        self.assertAlmostEqual(square_root(0), 0)
     #########################
 
 # Do not touch this
